@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!--Direct CDN  -->
+
+    <!-- <script src="https://unpkg.com/vue@next"></script>
+    <title>Vue Admin Template</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-plus/lib/index.full.js"></script>
+    <script src="https://unpkg.com/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.2/src/httpVueLoader.min.js"></script> -->
+
+    <!-- Downloaded CDN from assets -->
+    
+    <script src="assets/js/vue.js"></script>
+    <title>Vue Admin Template</title>
+    <link rel="stylesheet" href="assets/css/element-ui-theme-chalk.css">
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/sfc-loader.js"></script>
+    <script src="assets/js/vue-router.js"></script>
+    <script type="text/javascript" src="assets/js/http-vue-loader.js"></script> 
+  </head>
+  <body>
+    <div id="app">
+      <router-view></router-view>
+    </div>
+    <script>
+      const options = {
+            moduleCache: {
+                vue: Vue
+            },
+            async getFile(url) {
+
+                const res = await fetch(url);
+                if (!res.ok)
+                    throw Object.assign(new Error(res.statusText + ' ' + url), { res });
+                return await res.text();
+            },
+            addStyle(textContent) {
+                const style = Object.assign(document.createElement('style'), { textContent });
+                const ref = document.head.getElementsByTagName('style')[0] || null;
+                document.head.insertBefore(style, ref);
+            },
+        }
+        const { loadModule } = window["vue3-sfc-loader"];
+    </script>
+    <script src="src/router/index.js"></script>
+  </body>
+  </body>
+</html>
